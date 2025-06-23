@@ -11,7 +11,7 @@
     (flake-utils.lib.eachDefaultSystem (system:
       let
         pkgs = nixpkgs.legacyPackages.${system};
-        b2n = bun2nix.defaultPackage.${system};
+        b2n = bun2nix.packages.${system}.default;
       in
       {
         packages = rec {
@@ -37,7 +37,7 @@
 
         devShells = rec {
           faux-user-identifier = with pkgs; mkShell {
-            packages = [ bun b2n.bin ];
+            packages = [ bun b2n ];
           };
 
           default = faux-user-identifier;
