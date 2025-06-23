@@ -14,5 +14,5 @@ mkBunDerivation {
     "--sourcemap"
   ];
 
-  index = ./index.ts;
+  index = "./index.ts";
 }
