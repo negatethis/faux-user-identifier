@@ -1,7 +1,7 @@
 { mkBunDerivation, ... }:
 
 mkBunDerivation {
-  name = "faux-user-identifier";
+  pname = "faux-user-identifier";
   version = "main";
 
   src = ./.;
