@@ -15,23 +15,9 @@
       in
       {
         packages = rec {
-          faux-user-identifier = b2n.mkBunDerivation {
-            name = "faux-user-identifier";
-            version = "main";
-
-            src = ./.;
-
-            bunNix = ./bun.nix;
-
-            buildFlags = [
-              "--compile"
-              "--minify"
-              "--sourcemap"
-            ];
-
-            index = ./index.ts;
+          faux-user-identifier = pkgs.callPackage ./default.nix {
+            inherit (bun2nix.lib.${system}) mkBunDerivation;
           };
-
           default = faux-user-identifier;
         };
 
